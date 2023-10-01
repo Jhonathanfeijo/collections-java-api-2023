@@ -13,16 +13,20 @@ public class CatalogoLivro {
 	}
 
 	public void adicionarLivro(Livro livro) {
-		System.out.println("\nAdicionado com sucesso no catalogo o " + livro);
-		livros.add(livro);
+		if (livro != null) {
+			System.out.println("\nAdicionado com sucesso no catalogo o " + livro);
+			livros.add(livro);
+		}
 	}
 
 	public List<Livro> pesquisarPorAutor(String autor) {
-		System.out.println("\n\nPesquisando por autor: " + autor);
 		List<Livro> livrosAutor = new ArrayList<>();
-		for (Livro livro : livros) {
-			if (livro.getAutor().equalsIgnoreCase(autor))
-				livrosAutor.add(livro);
+		if (autor != null && !autor.isBlank()) {
+			System.out.println("\n\nPesquisando por autor: " + autor);
+			for (Livro livro : livros) {
+				if (livro.getAutor().equalsIgnoreCase(autor))
+					livrosAutor.add(livro);
+			}
 		}
 		return livrosAutor;
 	}
@@ -43,19 +47,21 @@ public class CatalogoLivro {
 	}
 
 	public List<Livro> pesquisarPorTitulo(String titulo) {
-		System.out.println("\n\nProcurando o livro: " + titulo);
 		List<Livro> livroEncontrado = new ArrayList<Livro>();
-		for (Livro livro : livros) {
-			if (livro.getTitulo().equalsIgnoreCase(titulo)) {
-				livroEncontrado.add(livro);
-				break;
+		if (titulo != null && !titulo.isBlank()) {
+			System.out.println("\n\nProcurando o livro: " + titulo);
+			for (Livro livro : livros) {
+				if (livro.getTitulo().equalsIgnoreCase(titulo)) {
+					livroEncontrado.add(livro);
+					break;
+				}
 			}
 		}
 		return livroEncontrado;
 	}
 
 	public boolean encontrouLivro(List<Livro> listaLivros) {
-		if (listaLivros.isEmpty()) {
+		if (listaLivros.isEmpty() || listaLivros == null) {
 			System.out.println("Nenhum livro foi encontrado baseado nas informações que foram fornecidas");
 			return false;
 		}
@@ -67,14 +73,15 @@ public class CatalogoLivro {
 		CatalogoLivro catalogo = new CatalogoLivro();
 
 		System.out.println("TESTANDO PESQUISA COM LISTA VAZIA");
+	
 		List<Livro> livrosAnos = catalogo.pesquisarPorIntervaloAnos(2000, 2025);
-		catalogo.encontrouLivro(livrosAnos);
-
 		List<Livro> livrosAutor = catalogo.pesquisarPorAutor("CELSO");
-		catalogo.encontrouLivro(livrosAutor);
-
 		List<Livro> livrosTitulo = catalogo.pesquisarPorTitulo("Titanic");
+
+		catalogo.encontrouLivro(livrosAnos);
+		catalogo.encontrouLivro(livrosAutor);
 		catalogo.encontrouLivro(livrosTitulo);
+
 		System.out.println("\n\nTERMINANDO TESTE");
 
 		catalogo.adicionarLivro(new Livro("Celso", "A dificuldades diante a desigualdade", 1950));
@@ -112,6 +119,12 @@ public class CatalogoLivro {
 		catalogo.encontrouLivro(livrosTitulo);
 
 		livrosTitulo = catalogo.pesquisarPorTitulo("legal");
+		catalogo.encontrouLivro(livrosTitulo);
+
+		livrosTitulo = catalogo.pesquisarPorTitulo(null);
+		catalogo.encontrouLivro(livrosTitulo);
+		
+		livrosTitulo = catalogo.pesquisarPorTitulo("");
 		catalogo.encontrouLivro(livrosTitulo);
 
 		System.out.println("\n\nTERMINANDO TESTE\n\nFINALIZANDO PROGRAMA");
