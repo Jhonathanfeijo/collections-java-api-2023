@@ -72,23 +72,23 @@ public class CatalogoLivro {
 	public static void main(String[] args) {
 		CatalogoLivro catalogo = new CatalogoLivro();
 
-		System.out.println("TESTANDO PESQUISA COM LISTA VAZIA");
-	
-		List<Livro> livrosAnos = catalogo.pesquisarPorIntervaloAnos(2000, 2025);
-		List<Livro> livrosAutor = catalogo.pesquisarPorAutor("CELSO");
-		List<Livro> livrosTitulo = catalogo.pesquisarPorTitulo("Titanic");
+		System.out.println("Iniciando teste de lista vazia...");
 
+		List<Livro> livrosAnos = catalogo.pesquisarPorIntervaloAnos(2000, 2025);
 		catalogo.encontrouLivro(livrosAnos);
+		List<Livro> livrosAutor = catalogo.pesquisarPorAutor("CELSO");
 		catalogo.encontrouLivro(livrosAutor);
+		List<Livro> livrosTitulo = catalogo.pesquisarPorTitulo("Titanic");
 		catalogo.encontrouLivro(livrosTitulo);
 
-		System.out.println("\n\nTERMINANDO TESTE");
+		System.out.println("\n\nTeste finalizado!");
 
-		catalogo.adicionarLivro(new Livro("Celso", "A dificuldades diante a desigualdade", 1950));
+		catalogo.adicionarLivro(new Livro("Celso", "As dificuldades diante a desigualdade", 1950));
 		catalogo.adicionarLivro(new Livro("Naldo", "Encarando a vida como uma verdade", 2023));
 		catalogo.adicionarLivro(new Livro("João", "Legal", 2007));
 
-		System.out.println("\n\nINICIANDO PESQUISA DE LIVROS POR ANO COM LISTAS NAO VAZIAS");
+		System.out.println("\n\nIniciando pesquisa com listas não vazias...");
+		System.out.println("\n\nIniciando pesquisa com datas...");
 
 		livrosAnos = catalogo.pesquisarPorIntervaloAnos(2000, 2025);
 		catalogo.encontrouLivro(livrosAnos);
@@ -102,7 +102,7 @@ public class CatalogoLivro {
 		livrosAnos = catalogo.pesquisarPorIntervaloAnos(2050, 2002);
 		catalogo.encontrouLivro(livrosAnos);
 
-		System.out.println("\n\nTERMINANDO TESTE\n\nCOMECANDO PESQUISA POR LIVROS DE AUTOR");
+		System.out.println("\n\nTeste finalizado!\n\nIniciando teste com pesquisa por autor...");
 
 		livrosAutor = catalogo.pesquisarPorAutor("Jhon");
 		catalogo.encontrouLivro(livrosAutor);
@@ -113,7 +113,7 @@ public class CatalogoLivro {
 		livrosAutor = catalogo.pesquisarPorAutor("Gerson");
 		catalogo.encontrouLivro(livrosAutor);
 
-		System.out.println("\n\nTERMINANDO TESTE\n\nCOMECANDO TESTE POR TITULO DE LIVRO");
+		System.out.println("\n\nTeste finalizado!\n\nIniciando teste de pesquisa por titulo...");
 
 		livrosTitulo = catalogo.pesquisarPorTitulo("Vasco");
 		catalogo.encontrouLivro(livrosTitulo);
@@ -123,11 +123,11 @@ public class CatalogoLivro {
 
 		livrosTitulo = catalogo.pesquisarPorTitulo(null);
 		catalogo.encontrouLivro(livrosTitulo);
-		
+
 		livrosTitulo = catalogo.pesquisarPorTitulo("");
 		catalogo.encontrouLivro(livrosTitulo);
 
-		System.out.println("\n\nTERMINANDO TESTE\n\nFINALIZANDO PROGRAMA");
+		System.out.println("\n\nTeste finalizado!\n\nFinalizando programa");
 
 	}
 }
