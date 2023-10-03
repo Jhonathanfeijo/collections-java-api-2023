@@ -2,7 +2,7 @@ package com.santander.comparator;
 
 import java.util.Comparator;
 
-import com.santander.Pessoa;
+import com.santander.list.pessoa.Pessoa;
 
 public class PessoaComparatorAltura implements Comparator<Pessoa> {
 
